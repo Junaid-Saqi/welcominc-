@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="StudentIDCardApp.WelcomeDialog"
+        Title="Welcome!"
+        Width="480" Height="500"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Background="#F8FAFC"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="-1">
+
+  <Window.Styles>
+    <Style Selector="Button.primary">
+      <Setter Property="Background" Value="#0F172A"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="FontSize" Value="14"/>
+      <Setter Property="FontWeight" Value="SemiBold"/>
+      <Setter Property="CornerRadius" Value="6"/>
+      <Setter Property="Padding" Value="24,10"/>
+      <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+    <Style Selector="Button.primary:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#1E293B"/>
+    </Style>
+    <Style Selector="Button.primary:pressed /template/ ContentPresenter">
+      <Setter Property="Background" Value="#334155"/>
+    </Style>
+  </Window.Styles>
+
+  <!-- Empty Border to drag the window -->
+  <Panel>
+    <Border Height="40" VerticalAlignment="Top" IsHitTestVisible="False" Background="Transparent"/>
+
+    <Border Background="White" 
+            Margin="24,40,24,24"
+            CornerRadius="12" 
+            BorderBrush="#E2E8F0" 
+            BorderThickness="1"
+            Padding="32"
+            BoxShadow="0 10 15 -3 #08000000, 0 4 6 -2 #08000000">
+      
+      <StackPanel Spacing="16" VerticalAlignment="Center">
+        
+        <!-- Header -->
+        <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Center">
+          <Border Width="40" Height="40" CornerRadius="20" Background="#ECFDF5" VerticalAlignment="Center">
+            <TextBlock Text="✓" FontSize="20" FontWeight="Bold" Foreground="#059669" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </Border>
+          <TextBlock Text="Registration Confirmed" 
+                     FontSize="20" 
+                     FontWeight="Bold" 
+                     Foreground="#0F172A" 
+                     VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Message Body -->
+        <TextBlock x:Name="WelcomeMessageText" 
+                   Text="Welcome message placeholder." 
+                   FontSize="15" 
+                   Foreground="#475569" 
+                   TextWrapping="Wrap"
+                   LineHeight="24"
+                   TextAlignment="Center"
+                   Margin="0,8,0,16"/>
+
+        <!-- Close Button -->
+        <Button Classes="primary" Content="Close" Click="OnCloseClick" HorizontalAlignment="Center"/>
+
+      </StackPanel>
+    </Border>
+  </Panel>
+</Window>
